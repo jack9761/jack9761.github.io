@@ -1,28 +1,107 @@
 :root {
-
     --text-color: #000;
-  
-    --background-color: #eeeeee;
-  
+    --background-color: #fffbe8;
+    --link-color: #111;
+    --link-hover-color: #555;
+    --lighter-text-color: #666;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
   }
-  
-  
-  
   @media (prefers-color-scheme: dark) {
-  
     :root {
-  
-      --text-color: #fff
+      --text-color: #fff;
       --background-color: #000;
-  
+      --link-color: #eee;
+      --link-hover-color: #bbb;
+      --lighter-text-color: #aaa;
     }
-  
+    .githubicon,.mailicon{
+    filter: invert(1) brightness(1.1);
+    }
   }
 body{
     background-color: var(--background-color);
     color: var(--text-color);
 }
-.header{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+
+hr{
+  border: 0;
+  height: 1px;
+  background-color: var(--text-color);
+  margin: 5px 0;
 }
+a:link, a:visited {
+  color: var(--link-color);
+}
+a:hover, a:active {
+  color: var(--link-hover-color);
+}
+.lightertext{
+  color: var(--lighter-text-color)
+}
+.topnav {
+  overflow: hidden;
+  font-weight: bold;
+}
+.frontpageheader{
+    text-align: left;
+    margin-bottom: 0pt;
+    margin-top: 5px;
+}
+.frontpagesubheader{
+    font-weight: 300;
+    font-size: .7rem;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.images{
+  max-height:50%;
+  max-width:50%;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+.githubicon,.mailicon{
+  color: var(--text-color);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em; 
+  overflow: visible;
+}
+.projectarticle > *{
+  margin-top: 0;
+  margin-bottom: 6pt;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+@media (min-width: 768px) {
+    .frontpage {
+        display: flex;
+        flex-direction: row;
+    }
+    .frontpageaboutme:not(:first-child):not(hr) {
+      border-left: 2px solid var(--text-color);
+      padding-left: .5rem; 
+    }
+    .frontpageaboutme:first-child {
+      padding-right: .8rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .frontpage {
+      display: flex;
+      flex-direction: column;
+    }
+    .frontpageaboutme hr {
+      visibility: hidden;
+    }
+}
+
